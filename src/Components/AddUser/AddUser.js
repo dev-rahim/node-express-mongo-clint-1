@@ -6,8 +6,21 @@ const AddUser = () => {
     const handleSubmit = (e) => {
         const name = nameRef.current.value;
         const email = emailRef.current.value;
-        console.log(name, email);
+        const newUser = JSON.stringify({ name, email })
+        console.log();
 
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: newUser,
+        }).then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert('Insert SuccessFul')
+                }
+            })
         e.preventDefault();
     }
     return (
