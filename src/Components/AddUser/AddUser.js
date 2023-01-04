@@ -20,6 +20,7 @@ const AddUser = () => {
                 if (data) {
                     alert('Insert SuccessFul')
                 }
+                e.target.reset();
             })
         e.preventDefault();
     }
